@@ -1,0 +1,75 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.36.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           un-unicode
+version:        0.1.0.0
+description:    Convert unicode math symbols in a text to LaTeX commands.
+homepage:       https://github.com/czhang03/un-unicode#readme
+bug-reports:    https://github.com/czhang03/un-unicode/issues
+author:         C. Zhang
+maintainer:     czhang03_gh@tutanota.com
+copyright:      2024 C. Zhang
+license:        GPL-3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    CHANGELOG.md
+
+source-repository head
+  type: git
+  location: https://github.com/czhang03/un-unicode
+
+library
+  exposed-modules:
+      Fonts
+      Lib
+      Messages
+      Output
+      Parser
+      Symbols
+  other-modules:
+      Paths_un_unicode
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , directory
+    , mtl
+  default-language: Haskell2010
+
+executable un-unicode-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_un_unicode
+  hs-source-dirs:
+      app
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , directory
+    , mtl
+    , un-unicode
+  default-language: Haskell2010
+
+test-suite un-unicode-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_un_unicode
+  hs-source-dirs:
+      test
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , containers
+    , directory
+    , mtl
+    , un-unicode
+  default-language: Haskell2010
